@@ -1,0 +1,13 @@
+import requests
+from bs4 import BeautifulSoup as Soup
+r = requests.get("https://gotovim-doma.ru/recipe/957-beshbarmak")
+s = Soup(r.text, "html.parser")
+
+ll = s.find_all(class_="title")
+l = s.find_all(class_="span-8 tbl-det")
+
+for x in ll:
+  print(x.text)
+print("")
+for x in l:
+  print(x.text)
